@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <style>
+      form {
+        background-color: gray;
+      }
+      table {
+        padding-left: 20px;
+      }
+      td {
+        padding-top: 20px;
+      }
+      .box {
+        width: 200px;
+        height: 30px;
+        border: 1px solid black;
+      }
+      .box_dis {
+        height: 30px;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Billing Form</h1>
+      <table style="width: 50%">
+        <tbody>
+          <tr>
+            <td><label>Order No.</label></td>
+            <td><input id="orderNo" type="text" /></td>
+          </tr>
+          <tr>
+            <td><label>Order Date</label></td>
+            <td><input id="orderNo" type="text" /></td>
+          </tr>
+          <tr>
+            <td><label>Customer ID</label></td>
+            <td><input id="orderNo" type="text" /></td>
+          </tr>
+          <tr>
+            <td><label>Customer Name</label></td>
+            <td><input id="orderNo" type="text" /></td>
+          </tr>
+        </tbody>
+      </table>
+      <br />
+      <div class="parent">
+        <div class="row">
+          <div class="col-6">
+            <form>
+              <fieldset>
+                <legend>Product Details:</legend>
+                <table>
+                  <tbody>
+                    <tr>
+                      <td><label>Product Name</label></td>
+                      <td><input id="pro_no" type="text" /></td>
+                      <td>
+                        <button
+                          onclick="getting()"
+                          type="button"
+                          class="btn btn-dark"
+                        >
+                          add to cart
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><label>Unit Price</label></td>
+                      <td><input id="unit_price" type="number" /></td>
+                    </tr>
+                    <tr>
+                      <td><label>Sale Qty.</label></td>
+                      <td><input id="sales_qty" type="number" /></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </fieldset>
+            </form>
+          </div>
+          <div class="col-6">
+            <table>
+              <tr>
+                <td>DISCOUNT</td>
+
+                <td><div class="box_dis">5%</div></td>
+              </tr>
+              <tr>
+                <td>GRAND TOTAL</td>
+                <td><div id="grand" class="box"></div></td>
+              </tr>
+              <tr>
+                <td>TOTAL PAYMENT</td>
+                <td><div id="totalpay" class="box"></div></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+      <table border="2" cellpadding="10">
+        <tbody id="tbody">
+          <tr>
+            <th>Product Name</th>
+            <th>Unit Price</th>
+            <th>Qty.</th>
+            <th>Amount</th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <script>
+      var grandtotal = 0;
+      var total = 0;
+
+      function getting() {
+        var pro, order, sales;
+        pro = document.getElementById("pro_no").value;
+        order = document.getElementById("unit_price").value;
+        sales = document.getElementById("sales_qty").value;
+        var tbody = document.getElementById("tbody");
+        tbody.innerHTML += `<table><tr><td> ${pro}</td><td> ${order}</td><td> ${sales}</td><td>${
+          order * sales
+        } </td></tr></table>`;
+        grandtotal = grandtotal + order * sales;
+        document.getElementById("grand").innerHTML = grandtotal;
+        total = grandtotal - (grandtotal * 5) / 100;
+        document.getElementById("totalpay").innerHTML = total;
+      }
+    </script>
+
+    <!-- Optional JavaSc    ript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

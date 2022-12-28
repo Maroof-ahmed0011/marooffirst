@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <style>
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      td,
+      th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+
+      tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>tabe content</h2>
+
+      <table>
+        <tr>
+          <th>coffee brands</th>
+          <th id="pc1">price</th>
+          <th>quality</th>
+        </tr>
+        <tr>
+          <td>death wish</td>
+          <td>200 RS</td>
+          <td><input id="price1" type="number" /></td>
+        </tr>
+        <tr>
+          <td>starbucks french</td>
+          <td>300 RS</td>
+          <td><input id="price2" type="number" /></td>
+        </tr>
+        <tr>
+          <td>RISING SUN BRAZIL</td>
+          <td>250 RS</td>
+          <td><input id="price3" type="number" /></td>
+        </tr>
+        <tr>
+          <td>LAVAZA SUPER CREMA ESPRESEO</td>
+          <td>300 RS</td>
+          <td><input id="price4" type="number" /></td>
+        </tr>
+        <tr>
+          <td>HAWAIII YUMMY ICE CREAM</td>
+          <td>300 RS</td>
+          <td><input id="price5" type="number" /></td>
+        </tr>
+        <tr>
+          <td></td>
+        </tr>
+
+        <tr></tr>
+        <tr>
+          <td>
+            <button onclick="abc()" class="btn btn-primary">
+              total cost (RS)
+            </button>
+          </td>
+          <td>
+            <textarea name="" id="total_cost" cols="10" rows="1"></textarea>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <button onclick="getclear()" class="btn btn-primary">
+              clear entry
+            </button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <script>
+      function abc() {
+        var p1, p2, p3, p4, p5;
+        p1 = document.getElementById("price1").value * 200;
+        p2 = document.getElementById("price2").value * 300;
+        p3 = document.getElementById("price3").value * 300;
+        p4 = document.getElementById("price4").value * 300;
+        p5 = document.getElementById("price5").value * 300;
+        var sum = p1 + p2 + p3 + p4 + p5;
+        document.getElementById("total_cost").innerHTML = sum;
+      }
+      function getclear() {
+        document.getElementById("price1").value = "";
+        document.getElementById("price2").value = "";
+        document.getElementById("price3").value = "";
+        document.getElementById("price4").value = "";
+        document.getElementById("price5").value = "";
+        document.getElementById("total_cost").value = "";
+      }
+    </script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
